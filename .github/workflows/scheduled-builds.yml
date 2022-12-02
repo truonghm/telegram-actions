@@ -4,10 +4,10 @@ name: Trigger Site Rebuild on a CRON Schedule
 on:
   schedule:
     # Runs "at minute 55 past every hour" (see https://crontab.guru)
-    - cron: '55 11 * * *'
-  push:
-    branches:
-      - master
+    - cron: '55 7,11,16 * * *'
+  # push:
+  #   branches:
+  #     - master
 
 jobs:
   message:

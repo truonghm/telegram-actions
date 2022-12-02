@@ -36,7 +36,6 @@ def send_photo(caption, photo_path):
 if __name__ == "__main__":
 	message = """
 	<b>Good Morning</b> <a href="tg://user?id=hmtrg">Truong</a>! Don't forget these following items for the day:
-
 	- <a href="https://leetcode.com/study-plan/leetcode-75/?progress=xdaigrwd">Leedcode 75</a>
 	- <a href="https://adventofcode.com/">Advent of Code 2022</a>
 
