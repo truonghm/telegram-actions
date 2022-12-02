@@ -1,7 +1,7 @@
 import requests
 import os
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 def send_msg(text):
 	token = os.getenv("TELEGRAM_TOKEN")
