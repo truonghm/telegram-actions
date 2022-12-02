@@ -17,6 +17,20 @@ def send_msg(text):
 	results = requests.get(full_url)
 	print(results.json())
 
+def send_photo(caption, photo_path):
+	token = os.getenv("TELEGRAM_TOKEN")
+	chat_id = os.getenv("TELEGRAM_TO")
+	parameters = {
+		'photo': open(photo_path, 'rb'),
+		'chat_id':chat_id,
+		# 'disable_web_page_preview':True,
+		'parse_mode':'HTML',
+		'caption':caption,
+	}
+	base_url = f"https://api.telegram.org/bot{token}/sendPhoto?"
+	full_url = base_url + "&".join([f"{k}={v}" for k, v in parameters.items()]) 
+	results = requests.get(full_url)
+	print(results.json())
 
 
 if __name__ == "__main__":
@@ -30,4 +44,4 @@ if __name__ == "__main__":
 	- <a href="https://news.ycombinator.com/news">HackerNews</a>
 	- <a href="https://sports.yahoo.com/nba/scoreboard/">Today's NBA Games </a>
 	"""
-	send_msg(message)
+	send_photo(message, './.assets/doraemon-noti.png')
