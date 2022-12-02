@@ -10,8 +10,9 @@ on:
       - master
 
 jobs:
-  build:
-    name: Build
+  message:
+    environment: PROD
+    name: SendMessage
     runs-on: ubuntu-latest
     env:
       TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
@@ -20,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: '^3.8'
+          python-version: 3.8
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Run python script
