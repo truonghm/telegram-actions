@@ -1,1 +1,1 @@
-# Bot for personal Channel on Telegram
+# Periodically send messages to Telegram using Github Actions
