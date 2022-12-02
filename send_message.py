@@ -13,7 +13,7 @@ def send_msg(text):
 		'text':text,
 	}
 	base_url = f"https://api.telegram.org/bot{token}/sendMessage?"
-	full_url = base_url + "&".join([f"{k}={v}" for k, v in parameters]) 
+	full_url = base_url + "&".join([f"{k}={v}" for k, v in parameters.items()]) 
 	results = requests.get(full_url)
 	print(results.json())
 
