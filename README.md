@@ -1,1 +1,1 @@
-# Test Github Action with cron job
+# Bot for personal Channel on Telegram
