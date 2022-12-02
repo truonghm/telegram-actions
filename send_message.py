@@ -21,7 +21,6 @@ def send_photo(caption, photo_path):
 	token = os.getenv("TELEGRAM_TOKEN")
 	chat_id = os.getenv("TELEGRAM_TO")
 	parameters = {
-		'photo': open(photo_path, 'rb'),
 		'chat_id':chat_id,
 		# 'disable_web_page_preview':True,
 		'parse_mode':'HTML',
@@ -29,7 +28,7 @@ def send_photo(caption, photo_path):
 	}
 	base_url = f"https://api.telegram.org/bot{token}/sendPhoto?"
 	full_url = base_url + "&".join([f"{k}={v}" for k, v in parameters.items()]) 
-	results = requests.get(full_url)
+	results = requests.get(full_url, params=parameters, files=open(photo_path, 'rb'))
 	print(results.json())
 
 
