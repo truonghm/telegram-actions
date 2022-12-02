@@ -20,15 +20,15 @@ def send_msg(text):
 def send_photo(caption, photo_path):
 	token = os.getenv("TELEGRAM_TOKEN")
 	chat_id = os.getenv("TELEGRAM_TO")
-	parameters = {
+	params = {
 		'chat_id':chat_id,
 		# 'disable_web_page_preview':True,
 		'parse_mode':'HTML',
 		'caption':caption,
 	}
-	base_url = f"https://api.telegram.org/bot{token}/sendPhoto?"
-	full_url = base_url + "&".join([f"{k}={v}" for k, v in parameters.items()]) 
-	results = requests.get(full_url, params=parameters, files=open(photo_path, 'rb'))
+	base_url = f"https://api.telegram.org/bot{token}/sendPhoto"
+	# full_url = base_url + "&".join([f"{k}={v}" for k, v in params.items()]) 
+	results = requests.get(base_url, params=params, files=open(photo_path, 'rb'))
 	print(results.json())
 
 
