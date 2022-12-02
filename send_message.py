@@ -28,8 +28,9 @@ def send_photo(caption, photo_path):
 	}
 	base_url = f"https://api.telegram.org/bot{token}/sendPhoto"
 	# full_url = base_url + "&".join([f"{k}={v}" for k, v in params.items()]) 
-	results = requests.get(base_url, params=params, files=open(photo_path, 'rb'))
-	print(results.json())
+	with open(photo_path, "rb") as image_file:
+		results = requests.post(base_url, data=params, files={"photo": image_file})
+		print(results.json())
 
 
 if __name__ == "__main__":
